@@ -31,13 +31,9 @@ const RegisterForm: React.FC = () => {
       agreeToTerms: false,
     },
     validationSchema: createRegistrationFormSchema().shape({
-      agreeToTerms:
-        createRegistrationFormSchema().fields.agreeToTerms ??
-        Yup.boolean().oneOf(
-          // Use the imported Yup here
-          [true],
-          "You must agree to the terms and conditions"
-        ),
+      agreeToTerms: Yup.boolean()
+        .oneOf([true], "You must agree to the terms and conditions")
+        .required("You must agree to the terms and conditions"),
     }),
     onSubmit: async (values) => {
       if (!values.agreeToTerms) {

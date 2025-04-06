@@ -84,6 +84,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
       // Create new user
       const newUser = userRepository.create({
+        name: username, // Add the name field, using username as default
         username,
         email,
         password, // In real apps, hash the password

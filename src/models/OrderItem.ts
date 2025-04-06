@@ -1,3 +1,6 @@
+import { Product } from "./Product";
+
+// src/models/OrderItem.ts
 export interface OrderItem {
   id: number;
   order_id: number;
@@ -6,4 +9,8 @@ export interface OrderItem {
   price: number;
   created_at: string;
   updated_at: string;
+}
+
+export interface OrderItemWithProduct extends OrderItem {
+  product: Product;
 }
